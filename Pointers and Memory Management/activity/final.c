@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int ** allocateIntStarArray(int num);
 int * allocateIntArray(int num);
@@ -34,15 +33,3 @@ int main(void){
     }
     return 0;
 }
-
-/*
-int ** allocateIntStarArray(int num){
-    int ** ptr = (int **) malloc(num * sizeof(int *));
-    return ptr;
-}
-
-int * allocateIntArray(int num){
-    int * ptr = (int *) malloc(num * sizeof(int));
-    return ptr;
-}
-*/
