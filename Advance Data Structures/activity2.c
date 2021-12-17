@@ -45,6 +45,7 @@ int main(void) {
 
     initializePoly(p, size);
     printPoly(p, size);
+    free (p);
 
     return 0;
 
