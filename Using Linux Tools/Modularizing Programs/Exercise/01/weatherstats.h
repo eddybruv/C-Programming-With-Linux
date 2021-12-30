@@ -1,0 +1,1 @@
+double averageTemp(double *, int);
