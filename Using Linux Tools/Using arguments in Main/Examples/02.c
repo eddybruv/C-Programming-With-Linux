@@ -24,8 +24,10 @@ int main(int argc, char *argv[])
         {
             printf("argv[1] does not equal -e \n");
         }
+        //convert to interger
         wholeNumber = atoi(argv[2]);
         printf("%s as an integer is %d.\n", argv[2], wholeNumber);
+        //convert to float(or double)
         decimalNumber = atof(argv[3]);
         printf("%s as a double is %lf.\n", argv[3], decimalNumber);
     }
