@@ -1,0 +1,20 @@
+Create library: Use the ar (archive) utility:
+
+    ar rcs libweather.a weatherstats.o
+
+    r - replace (if already in)
+
+    c - create if doesn't exist yet
+
+    s - create index for fast access
+
+    (there are the most popular options)
+
+link program: The linker is able to read ar files and extract object file(s) from it.
+
+    gcc -std=c11 -Wall -fmax-errors=10 -Wextra -o program program.o libweather.a
+
+Still doesn't look quite like the first example of a library use with the -l flag. Here goes:
+
+    gcc -std=c11 -Wall -fmax-errors=10 -Wextra -o program program.o -L. -lweather
+
