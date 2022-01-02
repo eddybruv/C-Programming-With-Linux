@@ -3,17 +3,18 @@
     int
     main(void)
 {
+    // "FILE" is a data type
     FILE *ifile; /* ifile is a variable name - you could use any other name here. 
-                         However, the '*' is important - we are working with a pointer. 
-                         We call this a file pointer. */
+                    However, the '*' is important - we are working with a pointer. 
+                    We call this a file pointer. */
     int i, num, N;
 
-    ifile = fopen("file.txt", "r"); /* open file for reading. 
-                                                         The "r" stands for reading. */
+    ifile = fopen("file.txt", "r"); /*  open file for reading. 
+                                        The "r" stands for reading. */
 
     fscanf(ifile, "%d", &N); /* Read first number from the file.
-                                    Just like scanf(), the only difference is the 
-                                    file pointer that gets passed in as well. */
+                                Just like scanf(), the only difference is the 
+                                file pointer that gets passed in as well. */
 
     printf("There are %d numbers in the file.\n", N);
 
