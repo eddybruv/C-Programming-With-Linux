@@ -6,7 +6,7 @@ int main(void)
     int i, num, sum;
     int N;
 
-    ifile = fopen("files/my_third_file.txt", "r");
+    ifile = fopen("file.txt", "r");
 
     N = 0;
     sum = 0;
