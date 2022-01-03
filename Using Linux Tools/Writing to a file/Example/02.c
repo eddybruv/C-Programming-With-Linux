@@ -22,7 +22,7 @@ int main(void){
     } else {
         fp = fopen(filename, "w");
     }
-
+ 
     do
     {
         printf("Please enter a grade. Enter -1 to quit: \n");
