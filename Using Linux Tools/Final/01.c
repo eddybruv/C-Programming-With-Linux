@@ -14,8 +14,8 @@ struct star
 void printStars(struct star mystars[], int N);
 // add your propotypes here
 int readStars(struct star *mystars);
-void computeRadii(struct star *mystar, int size);
-void classifyStars(struct star *mystar, int size);
+void computeRadii(struct star *mystars, int size);
+void classifyStars(struct star *mystars, int size);
 
 // Do not modify the main() function!
 int main(void)
@@ -76,55 +76,53 @@ int readStars(struct star *mystars)
 
     fp = fopen(filename, "r");
 
-    for (i = 0; (ch = getc(fp)) == EOF; i++)
+    for (i = 0; (ch = getc(fp)) != EOF; i++)
     {
         fscanf(fp, "%s", mystars[i].name);
+
         fscanf(fp, "%d", &mystars[i].temperature);
         fscanf(fp, "%lf", &mystars[i].luminosity);
 
         if (ch == ' ')
             continue;
     }
-
-    return (i + 1);
+    return (i);
 }
 
-void computeRadii(struct star *mystar, int size)
+void computeRadii(struct star *mystars, int size)
 {
-    double raduis;
     int Ts = 3500;
-
     for (int i = 0; i < size; i++)
     {
-        mystar[i].radius = pow((double)(Ts / mystar[i].temperature), 2.0) * sqrt(mystar[i].luminosity);
+        mystars[i].radius = pow(((double)Ts / (double)mystars[i].temperature), 2.0) * sqrt(mystars[i].luminosity);
     }
 }
 
-void classifyStars(struct star *mystar, int size)
+void classifyStars(struct star *mystars, int size)
 {
     for (int i = 0; i < size; i++)
     {
-        if (mystar[i].radius > 0.1 && mystar[i].radius < 10.0)
+        if (mystars[i].radius > 0.1 && mystars[i].radius < 10.0)
         {
-            mystar[i].classification = 'M';
+            mystars[i].classification = 'M';
         }
 
-        else if (mystar[i].radius > 10.0 && mystar[i].radius < 100.0)
+        else if (mystars[i].radius > 10.0 && mystars[i].radius < 100.0)
         {
-            mystar[i].classification = 'G';
+            mystars[i].classification = 'G';
         }
 
-        else if (mystar[i].radius > 100.0)
+        else if (mystars[i].radius > 100.0)
         {
-            mystar[i].classification = 'S';
+            mystars[i].classification = 'S';
         }
 
-        else if (mystar[i].radius < 0.01)
+        else if (mystars[i].radius < 0.01)
         {
-            mystar[i].classification = 'W';
+            mystars[i].classification = 'W';
         }
 
         else
-            mystar[i].classification = 'N';
+            mystars[i].classification = 'N';
     }
 }
