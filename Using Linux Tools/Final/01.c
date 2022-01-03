@@ -79,13 +79,10 @@ int readStars(struct star *mystars)
     for (i = 0; (ch = getc(fp)) != EOF; i++)
     {
         fscanf(fp, "%s", mystars[i].name);
-
         fscanf(fp, "%d", &mystars[i].temperature);
         fscanf(fp, "%lf", &mystars[i].luminosity);
-
-        if (ch == ' ')
-            continue;
     }
+    
     return (i);
 }
 
