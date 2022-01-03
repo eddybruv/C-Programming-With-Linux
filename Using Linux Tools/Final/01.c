@@ -70,20 +70,20 @@ void printStars(struct star mystars[], int N)
 int readStars(struct star *mystars)
 {
     FILE *fp;
-    char ch;
     int i;
     char filename[] = "stardata.txt";
 
     fp = fopen(filename, "r");
 
-    for (i = 0; (ch = getc(fp)) != EOF; i++)
+    for (i = 0; !feof(fp); i++)
     {
         fscanf(fp, "%s", mystars[i].name);
         fscanf(fp, "%d", &mystars[i].temperature);
         fscanf(fp, "%lf", &mystars[i].luminosity);
     }
-    
-    return (i);
+
+    fclose(fp);
+    return (i - 1);
 }
 
 void computeRadii(struct star *mystars, int size)
