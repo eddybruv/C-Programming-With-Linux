@@ -9,10 +9,10 @@ int main(void){
 
     do {
         printf("Please enter a grade. Enter -1 to quit: ");
-        scanf("%d", num);
+        scanf("%d", &num);
         
         if(num != -1)
-            fprintf(fp, "%d", num);
+            fprintf(fp, "%d ", num);
     } while (num != -1);
     
     fclose(fp);
