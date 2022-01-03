@@ -67,54 +67,64 @@ void printStars(struct star mystars[], int N)
 }
 
 // add the functions readStars(), computeRadii() and classifyStars() here.
-int readStars(struct star *mystars){
+int readStars(struct star *mystars)
+{
     FILE *fp;
     char ch;
     int i;
     char filename[] = "stardata.txt";
-    
+
     fp = fopen(filename, "r");
 
-    for(i = 0; (ch = getc(fp)) == EOF; i++){
+    for (i = 0; (ch = getc(fp)) == EOF; i++)
+    {
         fscanf(fp, "%s", mystars[i].name);
         fscanf(fp, "%d", &mystars[i].temperature);
         fscanf(fp, "%lf", &mystars[i].luminosity);
 
-        if(ch == ' ')
+        if (ch == ' ')
             continue;
     }
 
-    return (i+1);
+    return (i + 1);
 }
 
-void computeRadii(struct star *mystar, int size){
+void computeRadii(struct star *mystar, int size)
+{
     double raduis;
     int Ts = 3500;
 
-    for(int i = 0; i < size; i++){
-        mystar[i].radius = pow((Ts/mystar[i].temperature), 2) * sqrt(mystar[i].luminosity);         
+    for (int i = 0; i < size; i++)
+    {
+        mystar[i].radius = pow((double)(Ts / mystar[i].temperature), 2.0) * sqrt(mystar[i].luminosity);
     }
 }
 
-void classifyStars(struct star *mystar, int size){
-    for (int i = 0; i < size; i++){
-        if (mystar[i].radius > 0.1 && mystar[i].radius < 10){
+void classifyStars(struct star *mystar, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (mystar[i].radius > 0.1 && mystar[i].radius < 10.0)
+        {
             mystar[i].classification = 'M';
         }
 
-        else if (mystar[i].radius > 10 && mystar[i].radius < 100){
+        else if (mystar[i].radius > 10.0 && mystar[i].radius < 100.0)
+        {
             mystar[i].classification = 'G';
         }
 
-        else if (mystar[i].radius > 100){
+        else if (mystar[i].radius > 100.0)
+        {
             mystar[i].classification = 'S';
         }
 
-        else if (mystar[i].radius < 0.01){
+        else if (mystar[i].radius < 0.01)
+        {
             mystar[i].classification = 'W';
         }
 
-        else 
+        else
             mystar[i].classification = 'N';
     }
 }
