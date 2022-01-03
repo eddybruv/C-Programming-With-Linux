@@ -1,0 +1,45 @@
+Finding the radius of a star is not as easy as simply measuring it. 
+In fact, the radius is calculated from other data that is measured, namely the star's brightness (also called luminosity) and its surface temperature. 
+More precisely, the surface temperature cannot be directly measured either but is itself computed, but let's not go there here.
+
+You are given a file, stardata.txt, with star data: Each line of the file starts with the name of a star (a string), 
+followed by the star's temperature (in Kelvin), followed by the star's luminosity (measured in terms of the Sun's luminosity).
+
+Here are two sample lines from the file stardata.txt:
+
+Vega 9600 50
+Sirius_B 25000 0.0295
+
+Your first task is to write a function which reads this data into an array of structures, 
+with the structure declaration and function call already given to you in the provided code. 
+The function needs to return an integer, namely the number of stars read and stored in the array.
+
+You next task is to write a function that computes the radius of each star in this array (in terms of the Sun's radius) 
+and stores this radius in the appropriate location in the array of structures. The formula to compute a star's radius (in terms of the Sun's radius) is
+
+where TS=3500 is the temperature (in Kelvin) of the sun, T is the temperature of the star and L is the luminosity of the star in terms of the Sun's luminosity. 
+
+Your final task is to write a function which classifies each star in the array of structures as from the Main Sequence (store an 'M' in the appropriate location in the structure), 
+a Giant ('G'), a Supergiant ('S'), or a White Dwarf ('W'). If a star falls into neither of these categories store an 'N' in the appropriate location.
+
+Here are the classification rules (note that these are not exactly what astronomers use, but it's good enough for our purposes):
+
+Main Sequence (M): 
+Luminosity between 10-2 and 106 times that of the sun;
+Radius between 0.1 and 10 times that of the sun.
+
+Giants (G):  
+Luminosity between 103 and 105 times that of the sun;
+Radius between 10 and 100 times that of the sun.
+
+Supergiants (S):
+Luminosity between 105 and 106 times that of the sun;
+Radius greater than 100 times that of the sun.
+
+White Dwarfs (W):
+Radius less than 0.01 times that of the sun.
+
+Neither (N):
+Anything else
+
+You are given the structure declaration along with a main() function and a printStars() function. Do not modify any of these. Your job is to write the three functions which are called within the main() function.
