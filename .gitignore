@@ -2,4 +2,5 @@
 !/**/
 !*.*
 practice.c
-*.o
+*.o 
+.gitignore
