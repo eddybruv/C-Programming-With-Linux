@@ -1,17 +1,18 @@
 #include <stdio.h>
-int funnyadd(int j, int i);
 
 int main(void)
 {
-      int i = 5; 
-      int j = 7;
-      i = funnyadd(i,j);
-      printf("%d", i);
-      return(0);
-}
+      int i;
+      double d;
+      char s[256];
 
-int funnyadd(int j, int i)
-{
-      int a = 2;
-      return(a*j+i);
+      scanf("%d", &i);
+      scanf("%lf", &d);
+      scanf(" %[^\n]*s", s);
+
+      printf("%d\n", i + d);
+      printf("%.1lf\n", d + d);
+      printf("Hackerrank %s\n", s);
+
+      return 0;
 }
